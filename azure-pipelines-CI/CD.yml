@@ -29,6 +29,7 @@ stages:
   - job: Build
     displayName: Build
     pool:
+      name: TestAgent
       vmImage: $(vmImageName)
     steps:
     - task: Docker@2
@@ -52,6 +53,7 @@ stages:
   - deployment: Deploy
     displayName: Deploy
     pool:
+      name: TestAgent
       vmImage: $(vmImageName)
     environment: 'EndAroundCarrynetandk8s-8879.default'
     strategy:
